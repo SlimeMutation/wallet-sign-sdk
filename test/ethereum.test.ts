@@ -3,8 +3,7 @@ import {createEthAddress, importPrivateKey, publicKeyToAddress, ethSign, signOpM
 
 describe('ethereum wallet test', ()=> {
     test('createEthAddress', () => {
-        // const mnemonic = bip39.generateMnemonic(128, undefined, bip39.wordlists.english);
-        const mnemonic = 'bamboo solve mom trap patient enforce brain prefer legend item marine home';
+        const mnemonic = bip39.generateMnemonic(128, undefined, bip39.wordlists.english);
         console.log("mnemonic:" + mnemonic);
         const seedHex = bip39.mnemonicToSeedSync(mnemonic).toString('hex');
         const result = createEthAddress(seedHex, '0');
@@ -12,7 +11,7 @@ describe('ethereum wallet test', ()=> {
     });
 
     test('importPrivateKey', () => {
-        const privateKey = 'ecf89e2d87de13a1bf36a47d7e635d23968151f4a89f98c4d7d77adadcd48cf4';
+        const privateKey = '';
         const result = importPrivateKey(privateKey);
         console.log("importPrivateKey result: " + result);
     });
@@ -25,7 +24,7 @@ describe('ethereum wallet test', ()=> {
 
     test('ethSign', () => {
         const params = {
-            "privateKey": "ecf89e2d87de13a1bf36a47d7e635d23968151f4a89f98c4d7d77adadcd48cf4",
+            "privateKey": "",
             "nonce": 7,
             "from": "0x67Ec098b0ba97869B5CBc6bC289435856C57dfbF",
             "to": "0xF60Eb3263C138525b6a324aFC9b93c610F60E833",
@@ -42,7 +41,7 @@ describe('ethereum wallet test', ()=> {
 
     test('signOpMainnetTransaction', async () => {
         const params = {
-            "privateKey": "ecf89e2d87de13a1bf36a47d7e635d23968151f4a89f98c4d7d77adadcd48cf4",
+            "privateKey": "",
             "nonce": 7,
             "from": "0x67Ec098b0ba97869B5CBc6bC289435856C57dfbF",
             "to": "0xF60Eb3263C138525b6a324aFC9b93c610F60E833",
@@ -55,5 +54,72 @@ describe('ethereum wallet test', ()=> {
         }
         const result = await signOpMainnetTransaction(params);
         console.log("signOpMainnetTransaction result: " + result);
+    });
+
+    test('sign eth legacy', async () => {
+        const rawHex = await ethSign({
+            "privateKey": "",
+            "nonce": 193,
+            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
+            "gasLimit": 21000,
+            "amount": "0.0001",
+            "gasPrice": 20520000000,
+            "decimal": 18,
+            "chainId": 11155111,
+            "tokenAddress": "0x00"
+        })
+        console.log(rawHex)
+    });
+
+    test('sign eth eip1559', async () => {
+        const rawHex = ethSign({
+            "privateKey": "",
+            "nonce": 194,
+            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
+            "amount": "0.0001",
+            "gasLimit": 21000,
+            "maxFeePerGas": 20900000000,
+            "maxPriorityFeePerGas": 2600000000,
+            "decimal": 18,
+            "chainId": 11155111,
+            "tokenAddress": "0x00"
+        })
+        console.log(rawHex)
+    });
+
+    test('sign bnb eip1559', async () => {
+        const rawHex = ethSign({
+            "privateKey": "",
+            "nonce": 0,
+            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
+            "amount": "0.0001",
+            "gasLimit": 21000,
+            "maxFeePerGas": 20900000000,
+            "maxPriorityFeePerGas": 2600000000,
+            "decimal": 18,
+            "chainId": 97,
+            "tokenAddress": "0x00"
+        })
+        console.log(rawHex)
+    });
+
+    test('sign mytoken eip1559', async () => {
+        const rawHex = ethSign({
+            "privateKey": "",
+            "nonce": 203,
+            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
+            "amount": "100000",
+            "gasLimit": 150000,
+            "maxFeePerGas": 30000000000,
+            "maxPriorityFeePerGas": 3000000000,
+            "decimal": 18,
+            "chainId": 11155111,
+            "tokenAddress": "0x05206DeAc2b9f5c712890c20f66883b8Af1F755a"
+        })
+        console.log(rawHex)
     });
 });

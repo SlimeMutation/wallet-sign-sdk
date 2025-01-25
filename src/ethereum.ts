@@ -60,7 +60,7 @@ export function ethSign(params: any) {
     }
     if (tokenAddress && tokenAddress !== '0x00') {
         const ABI = [
-            'function transfer(address to, uint amount)'
+            'function transfer(address to, uint256 amount)'
         ];
         const iface = new Interface(ABI);
         txData.data = iface.encodeFunctionData('transfer', [to, newAmountHex]);
