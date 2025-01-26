@@ -11,7 +11,7 @@ describe('ethereum wallet test', ()=> {
     });
 
     test('importPrivateKey', () => {
-        const privateKey = '';
+        const privateKey = 'f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe';
         const result = importPrivateKey(privateKey);
         console.log("importPrivateKey result: " + result);
     });
@@ -24,9 +24,9 @@ describe('ethereum wallet test', ()=> {
 
     test('ethSign', () => {
         const params = {
-            "privateKey": "",
+            "privateKey": "f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe",
             "nonce": 7,
-            "from": "0x67Ec098b0ba97869B5CBc6bC289435856C57dfbF",
+            "from": "0x6e40b69CFe816f2FFcc74d1b7Ca2E88136F3A8A6",
             "to": "0xF60Eb3263C138525b6a324aFC9b93c610F60E833",
             "gasLimit": 21000,
             "amount": "0.0001",
@@ -41,9 +41,9 @@ describe('ethereum wallet test', ()=> {
 
     test('signOpMainnetTransaction', async () => {
         const params = {
-            "privateKey": "",
+            "privateKey": "f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe",
             "nonce": 7,
-            "from": "0x67Ec098b0ba97869B5CBc6bC289435856C57dfbF",
+            "from": "0x6e40b69CFe816f2FFcc74d1b7Ca2E88136F3A8A6",
             "to": "0xF60Eb3263C138525b6a324aFC9b93c610F60E833",
             "gasLimit": 21000,
             "amount": "0.0001",
@@ -58,9 +58,9 @@ describe('ethereum wallet test', ()=> {
 
     test('sign eth legacy', async () => {
         const rawHex = await ethSign({
-            "privateKey": "",
+            "privateKey": "f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe",
             "nonce": 193,
-            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "from": "0x6e40b69CFe816f2FFcc74d1b7Ca2E88136F3A8A6",
             "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
             "gasLimit": 21000,
             "amount": "0.0001",
@@ -74,9 +74,9 @@ describe('ethereum wallet test', ()=> {
 
     test('sign eth eip1559', async () => {
         const rawHex = ethSign({
-            "privateKey": "",
+            "privateKey": "f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe",
             "nonce": 194,
-            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "from": "0x6e40b69CFe816f2FFcc74d1b7Ca2E88136F3A8A6",
             "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
             "amount": "0.0001",
             "gasLimit": 21000,
@@ -91,9 +91,9 @@ describe('ethereum wallet test', ()=> {
 
     test('sign bnb eip1559', async () => {
         const rawHex = ethSign({
-            "privateKey": "",
+            "privateKey": "f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe",
             "nonce": 0,
-            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "from": "0x6e40b69CFe816f2FFcc74d1b7Ca2E88136F3A8A6",
             "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
             "amount": "0.0001",
             "gasLimit": 21000,
@@ -108,9 +108,9 @@ describe('ethereum wallet test', ()=> {
 
     test('sign mytoken eip1559', async () => {
         const rawHex = ethSign({
-            "privateKey": "",
+            "privateKey": "f7f4ed74999ac4332223705eb36b63ed33ba42bca192396258f1beceac78f4fe",
             "nonce": 203,
-            "from": "0x4FaF9B55BD7b5E657Ed6d60157f60Ba587676E45",
+            "from": "0x6e40b69CFe816f2FFcc74d1b7Ca2E88136F3A8A6",
             "to": "0x34b544393513622f198c012FB2D4b404ad53a8A9",
             "amount": "100000",
             "gasLimit": 150000,
