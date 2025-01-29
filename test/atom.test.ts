@@ -7,7 +7,7 @@ import {
     verifyAtomAddress,
     importAtomAddress,
     SignV2Transaction
-} from '../src/cosmos/index_copy'
+} from '../src/cosmos'
 
 describe('atom unit test case', () => {
     test('createAddress', async () => {
