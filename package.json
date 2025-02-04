@@ -52,7 +52,8 @@
     "tonweb-lite": "0.0.4",
     "tweetnacl": "^1.0.3",
     "@stacks/keychain": "^3.1.0",
-    "@stacks/transactions": "^3.1.0"
+    "@stacks/transactions": "^3.1.0",
+    "@mysten/sui.js": "0.37.1"
   },
   "engines": {
     "node": ">=18.0.0 <=22.0.0"
