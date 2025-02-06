@@ -30,12 +30,16 @@
     "typescript": "^4"
   },
   "dependencies": {
+    "@aptos-labs/ts-sdk": "^1.33.2",
     "@cosmjs/amino": "0.26.2",
     "@cosmjs/encoding": "0.26.2",
     "@ethereumjs/common": "2.4.0",
     "@ethereumjs/tx": "3.2.1",
+    "@mysten/sui.js": "0.37.1",
     "@solana/spl-token": "0.1.8",
     "@solana/web3.js": "1.10.0",
+    "@stacks/keychain": "^3.1.0",
+    "@stacks/transactions": "^3.1.0",
     "bech32": "2.0.0",
     "bignumber.js": "9.0.1",
     "bip32": "^5.0.0-rc.0",
@@ -50,10 +54,7 @@
     "tiny-secp256k1": "^2.2.3",
     "ton-crypto": "^3.2.0",
     "tonweb-lite": "0.0.4",
-    "tweetnacl": "^1.0.3",
-    "@stacks/keychain": "^3.1.0",
-    "@stacks/transactions": "^3.1.0",
-    "@mysten/sui.js": "0.37.1"
+    "tweetnacl": "^1.0.3"
   },
   "engines": {
     "node": ">=18.0.0 <=22.0.0"
